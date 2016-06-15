@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+{% if lista %}
+<table class="table tale-strip">
+	<thead>
+		<tr>
+			<th>N°</th>
+			<th>Empleado</th>
+			<th>Fecha</th>
+      <th>comentarios</th>
+			<th>Aprobado?</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for solicitud in lista %}
+		<tr>
+			<th>{{solicitud.id}}</th>
+			<th>{{solicitud.empleado}}</th>
+			<th>{{solicitud.fecha_creacion}}</th>
+			<th>{{solicitud.comentarios}}</th>
+			<th>{{solicitud.aprobacion}}</th>
+			<th><a href="{% url 'solicitudes:aprobar' solicitud.id %}"> aprobar</a></th>
+		</tr>
+		{% empty %}
+		<tr>
+			<td colspan="5"> No hay solicitudes</td>
+		</tr>
+		{% endfor %}
+
+	</tbody>
+</table>
+
+{% else %}
+    <p>No hay solicitudes pendientes ;)</p>
+{% endif %}
+
+{% endblock contenido %}

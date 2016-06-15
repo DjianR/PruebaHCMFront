@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+
+{% block subtitulo %}Registrar solicitud vacante{% endblock subtitulo %}
+{% block contenido %}
+
+
+	<a href="{% url 'solicitudes:vacantes' %}">Solicitar vacante</a> <!-- atras por js -->
+	<a href="{% url 'solicitudes:vacaciones' %}">Solicitar Vacaciones</a> <!-- atras por js -->
+	<br>
+
+{% endblock contenido %}

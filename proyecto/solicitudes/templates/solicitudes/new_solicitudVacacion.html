@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block subtitulo %}Registrar solicitud vacante{% endblock subtitulo %}
+{% block contenido %}
+
+<form method="post" >{% csrf_token %}
+
+<p>
+	inicio: MM/DD/YYYY HH:MM PM {{ formulario.inicio}}
+</p>
+
+<br>
+<p>termino MM/DD/YYYY HH:MM PM{{ formulario.termino}}</p>
+
+<br>
+<p>
+	Empleado {{ formulario.empleado }}
+</p>
+
+	<input type="submit" value="Terminar" class="btn btn-primary">
+</form>
+	<a href="javascript:history.go(-1)">Cancelar</a> <!-- atras por js -->
+	<br>
+
+{% endblock contenido %}
